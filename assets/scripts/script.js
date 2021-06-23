@@ -13,33 +13,41 @@ function generatePassword() {
   // console.log('Include capitals ' + includeCapitals);
   // var includeSpecChars = confirm('Include Special Characters?');
   // console.log('Include Special Characters ' + includeSpecChars);
-  // var passwordLength = prompt('Password Length');
-  // console.log('Password length ' + passwordLength);
-  var includeNum = false;
-  var includeCapitals =false;
-  var includeSpecChars =false;
+  var passwordLength = prompt('Password Length');
+  console.log(passwordLength);
+  var len = parseInt(passwordLength);
+  console.log(len);
+  var includeNum = confirm('Include Numbers?');
+  console.log(includeNum);
+  var includeCapitals = confirm('Include Capitals?');
+  console.log(includeCapitals);
+  var includeSpecChars =confirm('Include Special Characters?');
+  console.log(includeSpecChars);
 
-  var length = 5;
-  var string = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  var stringCap= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-  var numeric = ['0','1','2','3','4','5','6','7','8','9'];
-  var punctuation = ['!','@','#','$','%','^','&','*','(',')','_','+','~','`','|','}','{','[',']','\',',':',';','?','>','<',',','.','/','-','=']
+  var length=len;
+
+console.log('Length Null or? ' + length);
+  
+  
+  var string = 'abcdefghijklmnopqrstuvwxyz';
+  var stringCap= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  var numeric = '01234567890';
+  var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-='
   var password = '';
   console.log('Punctuation ' + punctuation);
   
-  if(includeNum!==false){
+  if(includeNum!==false&&includeCapitals!==true&&includeSpecChars!==true){
      for(i=1;i<length+1;i++){
       var possibleChars=string.concat(numeric);
       console.log(possibleChars);
       var c=Math.floor(Math.random()*possibleChars.length);
-      console.log('C: ' +c);
-      password=possibleChars[c];
+      password+=possibleChars.charAt(c)
      }
   }
 
-  if(includeNum!==false&&includeCapitals!==false){
+  if(includeNum!==false&&includeCapitals!==false&&includeSpecChars!==true){
     for(i=1;i<length+1;i++){
-      var possibleChars=string+numeric+stringCap;
+      var possibleChars=string.concat(numeric, stringCap);
       console.log(possibleChars);
       var c=Math.floor(Math.random()*possibleChars.length);
       password+=possibleChars.charAt(c);
@@ -47,7 +55,7 @@ function generatePassword() {
   }
   if(includeNum!==false&&includeCapitals!==false&&includeSpecChars!==false){
     for(i=1;i<length+1;i++){
-      var possibleChars=string+numeric+stringCap+punctuation;
+      var possibleChars=string.concat(numeric, stringCap, punctuation);
       console.log(possibleChars);
       var c=Math.floor(Math.random()*possibleChars.length);
       console.log('C: ' + c);
@@ -55,13 +63,12 @@ function generatePassword() {
      }
   }
   
- else if(includeNum!==true&&includeCapitals!==true&&includeSpecChars!==true){
+ else {
     for(i=1;i<length+1;i++){
-      var c=Math.floor(Math.random()*string.length);
+      var c=Math.floor(Math.random()*string.length+1);
       console.log('Possible Characters: ' + string);
-      console.log('C: ' + c);
-      c++;
-      password=string[c];
+      password+=string.charAt(c);
+      
     }
   }
   
