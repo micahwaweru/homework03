@@ -7,4 +7,4 @@ https://micahwaweru.github.io/homework03/
 
 https://github.com/micahwaweru/homework03
 
-https://github.com/micahwaweru/homework03/main/assets/images/Screen%20Shot%202021-06-23%20at%201.04.08%20AM.png
+https://raw.githubusercontent.com/micahwaweru/homework03/main/assets/images/Screen%20Shot%202021-06-23%20at%201.04.08%20AM.png
